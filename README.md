@@ -1,9 +1,11 @@
 # LinearTransformation
 This script performs Linear Transformations based on a matrix conversion. Matrices are made by Francesco Bucciantini
-
+<br>
 The function has two parameters: Input and Output.
+<br>
 Currently, only those conversions are supported:
-
+<br>
+<br>
 From "Linear_BT601_NTSC" to "LinearBT709"
 <br>
 From "Linear_BT601_PAL"  to "BT601_PAL_to_BT709"
@@ -45,3 +47,11 @@ From "VLog"              to "Linear_BT709"
 From "Linear_BT709"      to "DCI_XYZ"
 <br>
 From "Linear_BT709"      to "DCI_XYZ"
+<br>
+<br>
+<br>
+<br>
+The transformation is performed with 16bit precision, which means that if your input source is lower, let's say, 8bit planar yv12, it will be brought to 16bit planar RGB, the linear transformation will be applied with 16bit planar precision and then it will be brought down to 8bit planar yv12.
+<br>
+<br>
+Planar RGB 16bit is strongly suggested as it's gonna be faster, otherwise you can use 4:2:0, 4:2:2, 4:4:4 planar up to 16bit.
