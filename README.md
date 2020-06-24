@@ -1,5 +1,5 @@
 # LinearTransformation
-This script performs Linear Transformations based on a matrix conversion. Matrices are made by Francesco Bucciantini
+This script performs Linear Transformations based on a matrix conversion. Matrices are made by Francesco Bucciantini.
 <br>
 The function has two parameters: Input and Output.
 <br>
@@ -51,7 +51,12 @@ From "Linear_BT709"      to "DCI_XYZ"
 <br>
 <br>
 <br>
-The transformation is performed with 16bit precision, which means that if your input source is lower, let's say, 8bit planar yv12, it will be brought to 16bit planar RGB, the linear transformation will be applied with 16bit planar precision and then it will be brought down to 8bit planar yv12.
+A Linear Transformation is essentially a matrix that maps all points of a certain space to another, which includes of course points belonging to a certain curve to other in order to get a different curve.
+<br>
+Of course, a linear transformation can be used in encoding to map some values to some other values and therefore have conversions from curves like PQ to HLG and so on.
 <br>
 <br>
-Planar RGB 16bit is strongly suggested as it's gonna be faster, otherwise you can use 4:2:0, 4:2:2, 4:4:4 planar up to 16bit.
+The transformation is performed with 16bit precision, which means that if your input source is lower, let's say, 8bit planar yv12, it will be brought to 16bit planar RGB internally, the linear transformation will be applied with 16bit planar precision and then the result will be brought down to 8bit planar yv12.
+<br>
+<br>
+Planar RGB 16bit is strongly suggested as your source as it's gonna be faster, in fact 4:2:0, 4:2:2, 4:4:4 planar up to 16bit will be converted back and forth internally.
