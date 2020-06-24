@@ -17,7 +17,12 @@ Function LinearTransformation(clip clp, string "Input", string "Output") {
 
     Bpc = clp.BitsPerComponent     # original bits per component
 
-    clp = clp.ConvertToPlanarRGB().ConvertBits(bits=16)             # If already PlanarRGB 16 bit then should do nearly nothing
+    clp = (Original=="YUY2") ? clp.ConvertToYV16 : clp              # There is not 16 bit version of YUY2
+
+
+    # Convert to 16 bit first, reduce YUV -> RGB colorspace conversion losses
+    clp = clp.ConvertBits(bits=16).ConvertToPlanarRGB               # If already PlanarRGB 16 bit then should do nearly nothing
+
 
     CubeStr =
     \   Input=="Linear_BT601_NTSC" && Output=="LinearBT709"         ? "BT601_NTSC_to_BT709"
