@@ -6,9 +6,9 @@ The function has two parameters: Input and Output.
 Currently, only those conversions are supported:
 <br>
 <br>
-From "Linear_BT601_NTSC" to "LinearBT709"
+From "Linear_BT601_NTSC" to "Linear_BT709"
 <br>
-From "Linear_BT601_PAL"  to "BT601_PAL_to_BT709"
+From "Linear_BT601_PAL"  to "Linear_BT709"
 <br>
 From "LinearBT709"       to "Linear_BT601_NTSC"
 <br>
