@@ -26,7 +26,7 @@ Function LinearTransformation(clip clp, string "Input", string "Output") {
 
         CubeStr =
         \   Input=="Linear_BT601_NTSC" && Output=="Linear_BT709"        ? "BT601_NTSC_to_BT709"
-        \ : Input=="Linear_BT601_PAL"  && Output=="BT601_PAL_to_BT709"  ? "BT601_PAL_to_BT709"
+        \ : Input=="Linear_BT601_PAL"  && Output=="Linear_BT709"        ? "BT601_PAL_to_BT709"
         \ : Input=="Linear_BT709"      && Output=="Linear_BT601_NTSC"   ? "BT709_to_BT601_NTSC"
         \ : Input=="Linear_BT709"      && Output=="Linear_BT601_PAL"    ? "BT709_to_BT601_PAL"
         \ : Input=="Linear_BT709"      && Output=="BT2020_HLG"          ? "BT709_to_HLG"
