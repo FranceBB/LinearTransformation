@@ -60,3 +60,5 @@ The transformation is performed with 16bit precision, which means that if your i
 <br>
 <br>
 Planar RGB 16bit is strongly suggested as your source as it's gonna be faster, in fact 4:2:0, 4:2:2, 4:4:4 planar up to 16bit will be converted back and forth internally.
+<br>
+Inside the plugin, the path specified for the matrices is "mypath" and by default is:  mypath = "C:\Program Files (x86)\AviSynth+\LUTs\" which means that it's gonna look for my LUTs in a folder in such a location. It's not mandatory to have my LUTs there, you can have them in any location you want, provided that you do update that string.
