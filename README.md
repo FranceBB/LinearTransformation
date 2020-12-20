@@ -22,6 +22,8 @@ From "Linear_BT709"         to "DCI_XYZ"
 <br>
 From "Linear_BT709"             to "ZLog"
 <br>
+From "Linear_BT2020"             to "BT2020_HLG"
+<br>
 From "BT2100_PQ"             to "Linear_BT2020"
 <br>
 From "BT2100_PQ"             to "Linear_BT709"
