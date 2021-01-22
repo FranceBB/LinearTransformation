@@ -43,6 +43,8 @@ From "SLog3"         to "Linear_BT709"
 <br>
 From "BT2020_HLG"             to "Linear_BT709"
 <br>
+From "BT2020_HLG_A"             to "Linear_BT709"
+<br>
 From "BT2020_HLG"             to "BT2100_PQ"
 <br>
 From "DCI_XYZ"              to "Linear_BT709"
