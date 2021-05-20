@@ -7,51 +7,82 @@ The function has two parameters: Input and Output.
 Currently, only those conversions are supported:
 <br>
 <br>
-From "Linear_BT601_NTSC" to "Linear_BT709"
+From "BT601_NTSC"          to "BT709"
 <br>
-From "Linear_BT601_PAL"  to "Linear_BT709"
+From "BT601_PAL"           to "BT709"
 <br>
-From "Linear_BT709"       to "Linear_BT601_NTSC"
+From "BT709"               to "BT601_NTSC"
 <br>
-From "Linear_BT709"       to "Linear_BT601_PAL"
+From "BT709"               to "BT601_PAL"
 <br>
-From "Linear_BT709"       to "BT2020_HLG"
+From "BT709"               to "BT2020_HLG"
 <br>
-From "Linear_BT709"       to "BT2100_PQ"
+From "BT709"               to "BT2100_PQ"
 <br>
-From "Linear_BT709"         to "DCI_XYZ"
+From "BT709"               to "DCI_XYZ"
 <br>
-From "Linear_BT709"             to "ZLog"
+From "BT709"               to "ZLog"
 <br>
-From "Linear_BT2020"             to "BT2020_HLG"
+From "BT2020"              to "BT2020_HLG"
 <br>
-From "BT2100_PQ"             to "Linear_BT2020"
+From "BT2100_PQ"           to "BT2020"
 <br>
-From "BT2100_PQ"             to "Linear_BT709"
+From "BT2100_PQ"           to "BT709"
 <br>
 From "BT2100_PQ"           to "BT2020_HLG"
 <br>
-From "CLog3"        to "Linear_BT709"
+From "CLog3"               to "BT709"
 <br>
-From "CLog3"        to "BT2020_HLG"
+From "CLog3"               to "BT2020_HLG"
 <br>
-From "CLog3"              to "BT2100_PQ"
+From "CLog3"               to "BT2100_PQ"
 <br>
-From "SLog2"         to "Linear_BT709"
+From "SLog2"               to "BT709"
 <br>
-From "SLog3"         to "Linear_BT709"
+From "SLog3"               to "LBT709"
 <br>
-From "BT2020_HLG"             to "Linear_BT709"
+From "BT2020_HLG"          to "BT709"
 <br>
-From "BT2020_HLG_A"             to "Linear_BT709"
+From "BT2020_HLG_A"        to "BT709"
 <br>
-From "BT2020_HLG"             to "BT2100_PQ"
+From "BT2020_HLG"          to "BT2100_PQ"
 <br>
-From "DCI_XYZ"              to "Linear_BT709"
+From "DCI_XYZ"             to "BT709"
 <br>
-From "LogC"      to "Linear_BT709"
+From "LogC"                to "BT709"
 <br>
-From "VLog"      to "Linear_BT709"
+From "VLog"                to "BT709"
+<br>
+From "BT601_NTSC"          to "BT601_PAL"
+<br>
+From "BT601_NTSC"          to "BT2020"
+<br>
+From "BT601_NTSC"          to "BT2020_HLG"
+<br>
+From "BT601_NTSC"          to "BT2100_PQ"
+<br>
+From "BT601_PAL"           to "BT601_NTSC"
+<br>
+From "BT601_PAL"           to "BT2020"
+<br>
+From "BT601_PAL"           to "BT2020_HLG"
+<br>
+From "BT601_PAL"           to "BT2100_PQ"
+<br>
+From "BT2020_HLG"          to "BT601_PAL"
+<br>
+From "BT2020_HLG"          to "BT601_NTSC"
+<br>
+From "BT2020"              to "BT601_NTSC"
+<br>
+From "BT2020"              to "BT601_PAL"
+<br>
+From "BT2100_PQ"           to "BT601_NTSC"
+<br>
+From "BT2100_PQ"           to "BT601_PAL"
+
+
+
 <br>
 <br>
 <br>
