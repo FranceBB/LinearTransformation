@@ -42,6 +42,7 @@ Function LinearTransformation(clip clp, string "Input", string "Output") {
         \ : Input=="CLog3"             && Output=="BT2100_PQ"           ? "CLog3_to_HDR_PQ"
         \ : Input=="SLog2"             && Output=="BT709"               ? "Slog2_to_BT709"
         \ : Input=="SLog3"             && Output=="BT709"               ? "Slog3_to_BT709"
+        \ : Input=="SLog3_Super8"      && Output=="BT709"               ? "Slog3_Super8_to_BT709cube"
         \ : Input=="BT2020_HLG"        && Output=="BT709"               ? "HLG_BT2020_to_Linear_BT709"
         \ : Input=="BT2020_HLG_A"      && Output=="BT709"               ? "HLG_A_to_LinearBT709"
         \ : Input=="BT2020_HLG"        && Output=="BT2100_PQ"           ? "HLG_to_PQ"
