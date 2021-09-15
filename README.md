@@ -53,6 +53,8 @@ From "LogC"                to "BT709"
 <br>
 From "VLog"                to "BT709"
 <br>
+From "ZLog2"               to "BT709"
+<br>
 From "BT601_NTSC"          to "BT601_PAL"
 <br>
 From "BT601_NTSC"          to "BT2020"
