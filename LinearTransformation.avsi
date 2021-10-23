@@ -23,57 +23,84 @@ Function LinearTransformation(clip clp, string "Input", string "Output") {
     # Convert to 16 bit first, reduce YUV -> RGB colorspace conversion losses
     clp = clp.ConvertBits(bits=16).ConvertToPlanarRGB               # If already PlanarRGB 16 bit then should do nearly nothing
 
-
+    # Generating the string for the LUT selection
         CubeStr =
-        \   Input=="BT601_NTSC"        && Output=="BT709"               ? "BT601_NTSC_to_BT709"
-        \ : Input=="BT601_PAL"         && Output=="BT709"               ? "BT601_PAL_to_BT709"
-        \ : Input=="BT709"             && Output=="BT601_NTSC"          ? "BT709_to_BT601_NTSC"
-        \ : Input=="BT709"             && Output=="BT601_PAL"           ? "BT709_to_BT601_PAL"
-        \ : Input=="BT709"             && Output=="BT2020_HLG"          ? "BT709_to_HLG"
-        \ : Input=="BT709"             && Output=="BT2100_PQ"           ? "BT709_to_PQ"
-        \ : Input=="BT709"             && Output=="DCI_XYZ"             ? "YUVBT709_to_DCIXYZ"                       
-        \ : Input=="BT709"             && Output=="ZLog"                ? "ZLog_to_BT709"   
-        \ : Input=="BT2020"            && Output=="BT2020_HLG"          ? "Linear_BT2020_to_HLG_BT2020"
-        \ : Input=="BT2100_PQ"         && Output=="BT2020"              ? "BT2100_HDR_PQ_to_BT2020_SDR"
-        \ : Input=="BT2100_PQ"         && Output=="BT709"               ? "PQ_to_BT709_v1"
+        \   Input=="Linear_BT601_NTSC" && Output=="Linear_BT709"        ? "BT601_NTSC_to_BT709"
+        \ : Input=="Linear_BT601_PAL"  && Output=="Linear_BT709"        ? "BT601_PAL_to_BT709"
+        \ : Input=="Linear_BT709"      && Output=="Linear_BT601_NTSC"   ? "BT709_to_BT601_NTSC"
+        \ : Input=="Linear_BT709"      && Output=="Linear_BT601_PAL"    ? "BT709_to_BT601_PAL"
+        \ : Input=="Linear_BT709"      && Output=="BT2020_HLG"          ? "BT709_to_HLG"
+        \ : Input=="Linear_BT709"      && Output=="BT2100_PQ"           ? "BT709_to_PQ"
+        \ : Input=="Linear_BT709"      && Output=="DCI_XYZ"             ? "YUVBT709_to_DCIXYZ"                       
+        \ : Input=="Linear_BT709"      && Output=="ZLog"                ? "ZLog_to_BT709"                            
+        \ : Input=="BT2100_PQ"         && Output=="Linear_BT2020"       ? "BT2100_HDR_PQ_to_BT2020_SDR"
+        \ : Input=="BT2100_PQ"         && Output=="Linear_BT709"        ? "PQ_to_BT709_v1"
         \ : Input=="BT2100_PQ"         && Output=="BT2020_HLG"          ? "PQ_to_HLG"
-        \ : Input=="CLog3"             && Output=="BT709"               ? "CLog3_to_BT709"
+        \ : Input=="CLog3"             && Output=="Linear_BT709"        ? "CLog3_to_BT709"
         \ : Input=="CLog3"             && Output=="BT2020_HLG"          ? "CLog3_to_HDR_HLG"
         \ : Input=="CLog3"             && Output=="BT2100_PQ"           ? "CLog3_to_HDR_PQ"
-        \ : Input=="SLog2"             && Output=="BT709"               ? "Slog2_to_BT709"
-        \ : Input=="SLog3"             && Output=="BT709"               ? "Slog3_to_BT709"
-        \ : Input=="SLog3_Super8"      && Output=="BT709"               ? "Slog3_Super8_to_BT709"
-        \ : Input=="BT2020_HLG"        && Output=="BT709"               ? "HLG_BT2020_to_Linear_BT709"
-        \ : Input=="BT2020_HLG_A"      && Output=="BT709"               ? "HLG_A_to_LinearBT709"
+        \ : Input=="SLog2"             && Output=="Linear_BT709"        ? "Slog2_to_BT709"
+        \ : Input=="SLog3"             && Output=="Linear_BT709"        ? "Slog3_to_BT709"
+        \ : Input=="BT2020_HLG"        && Output=="Linear_BT709"        ? "HLG_to_BT709"
         \ : Input=="BT2020_HLG"        && Output=="BT2100_PQ"           ? "HLG_to_PQ"
-        \ : Input=="DCI_XYZ"           && Output=="BT709"               ? "DCIXYZ_to_YUVBT709"
-        \ : Input=="LogC"              && Output=="BT709"               ? "LogC_to_BT709"
-        \ : Input=="VLog"              && Output=="BT709"               ? "Vlog_to_BT709"
-        \ : Input=="ZLog2"             && Output=="BT709"               ? "ZLog2_to_BT709"
-        \ : Input=="BT601_NTSC"        && Output=="BT601_PAL"           ? "BT601_NTSC_to_BT601_PAL"
-        \ : Input=="BT601_NTSC"        && Output=="BT2020"              ? "BT601_NTSC_to_BT2020"
-        \ : Input=="BT601_NTSC"        && Output=="BT2020_HLG"          ? "BT601_NTSC_to_BT2020_HLG"
-        \ : Input=="BT601_NTSC"        && Output=="BT2100_PQ"           ? "BT601_NTSC_to_BT2100_PQ"     
-        \ : Input=="BT601_PAL"         && Output=="BT601_NTSC"          ? "BT601_PAL_to_BT601_NTSC"
-        \ : Input=="BT601_PAL"         && Output=="BT2020"              ? "BT601_PAL_to_BT2020"
-        \ : Input=="BT601_PAL"         && Output=="BT2020_HLG"          ? "BT601_PAL_to_BT2020_HLG"
-        \ : Input=="BT601_PAL"         && Output=="BT2100_PQ"           ? "BT601_PAL_to_BT2100_PQ"    
-        \ : Input=="BT2020_HLG"        && Output=="BT601_PAL"           ? "BT2020_HLG_BT601_PAL"
-        \ : Input=="BT2020_HLG"        && Output=="BT601_NTSC"          ? "BT2020_HLG_to_BT601_NTSC"  
-        \ : Input=="BT2020"            && Output=="BT601_NTSC"          ? "BT2020_to_BT601_NTSC"
-        \ : Input=="BT2020"            && Output=="BT601_PAL"           ? "BT2020_to_BT601_PAL" 
-        \ : Input=="BT2100_PQ"         && Output=="BT601_NTSC"          ? "BT2100_PQ_to_BT601_NTSC"
-        \ : Input=="BT2100_PQ"         && Output=="BT601_PAL"           ? "BT2100_PQ_to_BT601_PAL"        
-        
-        
-        
-        
-        
+        \ : Input=="DCI_XYZ"           && Output=="Linear_BT709"        ? "DCIXYZ_to_YUVBT709"
+        \ : Input=="LogC"              && Output=="Linear_BT709"        ? "LogC_to_BT709"
+        \ : Input=="VLog"              && Output=="Linear_BT709"        ? "Vlog_to_BT709"
         \ : ""
+       
+    # Populating frame properties               
+                my_Matrix =
+        \   Input=="Linear_BT601_NTSC" && Output=="Linear_BT709"        ? (1)
+        \ : Input=="Linear_BT601_PAL"  && Output=="Linear_BT709"        ? (1)
+        \ : Input=="Linear_BT709"      && Output=="Linear_BT601_NTSC"   ? (6)
+        \ : Input=="Linear_BT709"      && Output=="Linear_BT601_PAL"    ? (3)
+        \ : Input=="Linear_BT709"      && Output=="BT2020_HLG"          ? (9)
+        \ : Input=="Linear_BT709"      && Output=="BT2100_PQ"           ? (9)
+        \ : Input=="Linear_BT709"      && Output=="DCI_XYZ"             ? (2)
+        \ : Input=="Linear_BT709"      && Output=="ZLog"                ? (2)
+        \ : Input=="BT2100_PQ"         && Output=="Linear_BT2020"       ? (9)
+        \ : Input=="BT2100_PQ"         && Output=="Linear_BT709"        ? (1)
+        \ : Input=="BT2100_PQ"         && Output=="BT2020_HLG"          ? (9)
+        \ : Input=="CLog3"             && Output=="Linear_BT709"        ? (1)
+        \ : Input=="CLog3"             && Output=="BT2020_HLG"          ? (9)
+        \ : Input=="CLog3"             && Output=="BT2100_PQ"           ? (9)
+        \ : Input=="SLog2"             && Output=="Linear_BT709"        ? (1)
+        \ : Input=="SLog3"             && Output=="Linear_BT709"        ? (1)
+        \ : Input=="BT2020_HLG"        && Output=="Linear_BT709"        ? (1)
+        \ : Input=="BT2020_HLG"        && Output=="BT2100_PQ"           ? (9)
+        \ : Input=="DCI_XYZ"           && Output=="Linear_BT709"        ? (1)
+        \ : Input=="LogC"              && Output=="Linear_BT709"        ? (1)
+        \ : Input=="VLog"              && Output=="Linear_BT709"        ? (1)
+        \ : (2)
+
+                my_transfer =
+        \   Input=="Linear_BT601_NTSC" && Output=="Linear_BT709"        ? (1)
+        \ : Input=="Linear_BT601_PAL"  && Output=="Linear_BT709"        ? (1)
+        \ : Input=="Linear_BT709"      && Output=="Linear_BT601_NTSC"   ? (2)
+        \ : Input=="Linear_BT709"      && Output=="Linear_BT601_PAL"    ? (2)
+        \ : Input=="Linear_BT709"      && Output=="BT2020_HLG"          ? (18)
+        \ : Input=="Linear_BT709"      && Output=="BT2100_PQ"           ? (16)
+        \ : Input=="Linear_BT709"      && Output=="DCI_XYZ"             ? (2)
+        \ : Input=="Linear_BT709"      && Output=="ZLog"                ? (8)
+        \ : Input=="BT2100_PQ"         && Output=="Linear_BT2020"       ? (14)
+        \ : Input=="BT2100_PQ"         && Output=="Linear_BT709"        ? (1)
+        \ : Input=="BT2100_PQ"         && Output=="BT2020_HLG"          ? (18)
+        \ : Input=="CLog3"             && Output=="Linear_BT709"        ? (1)
+        \ : Input=="CLog3"             && Output=="BT2020_HLG"          ? (18)
+        \ : Input=="CLog3"             && Output=="BT2100_PQ"           ? (16)
+        \ : Input=="SLog2"             && Output=="Linear_BT709"        ? (1)
+        \ : Input=="SLog3"             && Output=="Linear_BT709"        ? (1)
+        \ : Input=="BT2020_HLG"        && Output=="Linear_BT709"        ? (1)
+        \ : Input=="BT2020_HLG"        && Output=="BT2100_PQ"           ? (16)
+        \ : Input=="DCI_XYZ"           && Output=="Linear_BT709"        ? (1)
+        \ : Input=="LogC"              && Output=="Linear_BT709"        ? (1)
+        \ : Input=="VLog"              && Output=="Linear_BT709"        ? (1)
+        \ : (2)
+
 
     Assert(CubeStr != "","LinearTransformation: Transformation not supported, please choose a valid input and output Input='"+Input+"' Output='"+Output+"'" )
 
-    Cube(clp, myPath + CubeStr + ".cube", fullrange=true)
+    Cube(clp, myPath + CubeStr + ".cube", fullrange=true).propset("_Matrix", my_Matrix).propset("_Transfer", my_transfer)
 
     out = Last.ConvertBits(bits=bpc, dither=1)
 
