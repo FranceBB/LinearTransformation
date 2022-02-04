@@ -7,82 +7,29 @@ The function has two parameters: Input and Output.
 Currently, only those conversions are supported:
 <br>
 <br>
-From "BT601_NTSC"          to "BT709"
-<br>
-From "BT601_PAL"           to "BT709"
-<br>
-From "BT709"               to "BT601_NTSC"
-<br>
-From "BT709"               to "BT601_PAL"
-<br>
-From "BT709"               to "BT2020_HLG"
-<br>
-From "BT709"               to "BT2100_PQ"
-<br>
-From "BT709"               to "DCI_XYZ"
-<br>
-From "BT709"               to "ZLog"
-<br>
-From "BT2020"              to "BT2020_HLG"
-<br>
-From "BT2100_PQ"           to "BT2020"
-<br>
-From "BT2100_PQ"           to "BT709"
-<br>
-From "BT2100_PQ"           to "BT2020_HLG"
-<br>
-From "CLog3"               to "BT709"
-<br>
-From "CLog3"               to "BT2020_HLG"
-<br>
-From "CLog3"               to "BT2100_PQ"
-<br>
-From "SLog2"               to "BT709"
-<br>
-From "SLog3"               to "LBT709"
-<br>
-From "BT2020_HLG"          to "BT709"
-<br>
-From "BT2020_HLG_A"        to "BT709"
-<br>
-From "BT2020_HLG"          to "BT2100_PQ"
-<br>
-From "DCI_XYZ"             to "BT709"
-<br>
-From "LogC"                to "BT709"
-<br>
-From "VLog"                to "BT709"
-<br>
-From "ZLog2"               to "BT709"
-<br>
-From "BT601_NTSC"          to "BT601_PAL"
-<br>
-From "BT601_NTSC"          to "BT2020"
-<br>
-From "BT601_NTSC"          to "BT2020_HLG"
-<br>
-From "BT601_NTSC"          to "BT2100_PQ"
-<br>
-From "BT601_PAL"           to "BT601_NTSC"
-<br>
-From "BT601_PAL"           to "BT2020"
-<br>
-From "BT601_PAL"           to "BT2020_HLG"
-<br>
-From "BT601_PAL"           to "BT2100_PQ"
-<br>
-From "BT2020_HLG"          to "BT601_PAL"
-<br>
-From "BT2020_HLG"          to "BT601_NTSC"
-<br>
-From "BT2020"              to "BT601_NTSC"
-<br>
-From "BT2020"              to "BT601_PAL"
-<br>
-From "BT2100_PQ"           to "BT601_NTSC"
-<br>
-From "BT2100_PQ"           to "BT601_PAL"
-
+LinearTransformation(Input="Linear_BT601_NTSC", Output="Linear_BT709")
+LinearTransformation(Input="Linear_BT601_PAL", Output="Linear_BT709")
+LinearTransformation(Input="Linear_BT709", Output="Linear_BT601_NTSC")
+LinearTransformation(Input="Linear_BT709", Output="Linear_BT601_PAL")
+LinearTransformation(Input="Linear_BT709", Output="BT2020_HLG")
+LinearTransformation(Input="Linear_BT709", Output=""BT2100_PQ")
+LinearTransformation(Input="Linear_BT709", Output=""DCI_XYZ")
+LinearTransformation(Input="Linear_BT709", Output=""ZLog")
+LinearTransformation(Input="BT2100_PQ", Output=""Linear_BT2020")
+LinearTransformation(Input="BT2100_PQ", Output=""Linear_BT709")
+LinearTransformation(Input="BT2100_PQ", Output=""BT2020_HLG")
+LinearTransformation(Input="CLog3", Output=""Linear_BT709")
+LinearTransformation(Input="CLog3", Output=""BT2020_HLG")
+LinearTransformation(Input="CLog3", Output=""BT2100_PQ")
+LinearTransformation(Input="SLog2", Output=""Linear_BT709")
+LinearTransformation(Input="SLog3", Output=""Linear_BT709")
+LinearTransformation(Input="BT2020_HLG", Output=""Linear_BT709")
+LinearTransformation(Input="BT2020_HLG", Output=""BT2100_PQ")
+LinearTransformation(Input="DCI_XYZ", Output=""Linear_BT709")
+LinearTransformation(Input="LogC", Output=""Linear_BT709")
+LinearTransformation(Input="VLog", Output=""Linear_BT709")
+LinearTransformation(Input="dvhe0509", Output=""Linear_BT709")
+        \ : ""
 
 
 <br>
