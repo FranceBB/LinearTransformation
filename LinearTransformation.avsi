@@ -46,6 +46,8 @@ Function LinearTransformation(clip clp, string "Input", string "Output") {
         \ : Input=="DCI_XYZ"                        && Output=="Linear_BT709"                        ? "DCIXYZ_to_YUVBT709"
         \ : Input=="LogC"                             && Output=="Linear_BT709"                        ? "LogC_to_BT709"
         \ : Input=="VLog"                             && Output=="Linear_BT709"                        ? "Vlog_to_BT709"
+        \ : Input=="ZLog"                             && Output=="Linear_BT709"                        ? "Z-Log_to_BT709"
+        \ : Input=="ZLog2"                            && Output=="Linear_BT709"                        ? "ZLog2_to_BT709"
         \ : Input=="dvhe0509"                       && Output=="Linear_BT709"                        ? "dvhe0509_to_BT709"
         \ : ""
        
@@ -72,6 +74,8 @@ Function LinearTransformation(clip clp, string "Input", string "Output") {
         \ : Input=="DCI_XYZ"                      && Output=="Linear_BT709"                         ? (1)
         \ : Input=="LogC"                           && Output=="Linear_BT709"                         ? (1)
         \ : Input=="VLog"                           && Output=="Linear_BT709"                         ? (1)
+        \ : Input=="ZLog"                           && Output=="Linear_BT709"                        ? (1)
+        \ : Input=="ZLog2"                          && Output=="Linear_BT709"                        ? (1)
         \ : Input=="dvhe0509"                     && Output=="Linear_BT709"                         ? (1)
         \ : (2)
 
@@ -97,6 +101,8 @@ Function LinearTransformation(clip clp, string "Input", string "Output") {
         \ : Input=="DCI_XYZ"                      && Output=="Linear_BT709"                         ? (1)
         \ : Input=="LogC"                           && Output=="Linear_BT709"                         ? (1)
         \ : Input=="VLog"                           && Output=="Linear_BT709"                         ? (1)
+        \ : Input=="ZLog"                           && Output=="Linear_BT709"                        ? (1)
+        \ : Input=="ZLog2"                          && Output=="Linear_BT709"                        ? (1)
         \ : Input=="dvhe0509"                     && Output=="Linear_BT709"                         ? (1)
         \ : (2)
 
