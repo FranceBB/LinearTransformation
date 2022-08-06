@@ -2,8 +2,12 @@ Function LinearTransformation(clip clp, string "Input", string "Output") {
 
     Input  = Default(Input ,"")        
     Output = Default(Output,"")
-
+    
+    #set the location of your Avisynth installation and/orthe LUTs downloaded
     mypath = "C:\Program Files (x86)\AviSynth+\LUTs\"
+    
+    #if x86 OS like Windows XP, then use
+    #mypath = "C:\Program Files\AviSynth+\LUTs\"
 
     # Removed IsRGB, that just means Any type of RGB at all, Interleaved, planar, any bit depth at all.
     # We've used "RGBP" for Planar RGB
@@ -31,8 +35,7 @@ Function LinearTransformation(clip clp, string "Input", string "Output") {
         \ : Input=="Linear_BT709"                && Output=="Linear_BT601_PAL"                ? "BT709_to_BT601_PAL"
         \ : Input=="Linear_BT709"                && Output=="BT2020_HLG"                          ? "BT709_to_HLG"
         \ : Input=="Linear_BT709"                && Output=="BT2100_PQ"                           ? "BT709_to_PQ"
-        \ : Input=="Linear_BT709"                && Output=="DCI_XYZ"                               ? "YUVBT709_to_DCIXYZ"                       
-        \ : Input=="Linear_BT709"                && Output=="ZLog"                                   ? "ZLog_to_BT709"                            
+        \ : Input=="Linear_BT709"                && Output=="DCI_XYZ"                               ? "YUVBT709_to_DCIXYZ"                                        
         \ : Input=="BT2100_PQ"                     && Output=="Linear_BT2020"                     ? "BT2100_HDR_PQ_to_BT2020_SDR"
         \ : Input=="BT2100_PQ"                     && Output=="Linear_BT709"                       ? "PQ_to_BT709_v1"
         \ : Input=="BT2100_PQ"                     && Output=="BT2020_HLG"                          ? "PQ_to_HLG"
@@ -60,7 +63,6 @@ Function LinearTransformation(clip clp, string "Input", string "Output") {
         \ : Input=="Linear_BT709"              && Output=="BT2020_HLG"                            ? (9)
         \ : Input=="Linear_BT709"              && Output=="BT2100_PQ"                              ? (9)
         \ : Input=="Linear_BT709"              && Output=="DCI_XYZ"                                 ? (2)
-        \ : Input=="Linear_BT709"              && Output=="ZLog"                                      ? (2)
         \ : Input=="BT2100_PQ"                   && Output=="Linear_BT2020"                       ? (9)
         \ : Input=="BT2100_PQ"                   && Output=="Linear_BT709"                         ? (1)
         \ : Input=="BT2100_PQ"                   && Output=="BT2020_HLG"                            ? (9)
@@ -87,7 +89,6 @@ Function LinearTransformation(clip clp, string "Input", string "Output") {
         \ : Input=="Linear_BT709"              && Output=="BT2020_HLG"                            ? (18)
         \ : Input=="Linear_BT709"              && Output=="BT2100_PQ"                              ? (16)
         \ : Input=="Linear_BT709"              && Output=="DCI_XYZ"                                 ? (2)
-        \ : Input=="Linear_BT709"              && Output=="ZLog"                                      ? (8)
         \ : Input=="BT2100_PQ"                   && Output=="Linear_BT2020"                       ? (14)
         \ : Input=="BT2100_PQ"                   && Output=="Linear_BT709"                         ? (1)
         \ : Input=="BT2100_PQ"                   && Output=="BT2020_HLG"                            ? (18)
@@ -105,6 +106,32 @@ Function LinearTransformation(clip clp, string "Input", string "Output") {
         \ : Input=="ZLog2"                          && Output=="Linear_BT709"                        ? (1)
         \ : Input=="dvhe0509"                     && Output=="Linear_BT709"                         ? (1)
         \ : (2)
+                   
+                output_Matrix =
+        \   Input=="Linear_BT601_NTSC"       && Output=="Linear_BT709"                        ? ("Rec709")
+        \ : Input=="Linear_BT601_PAL"        && Output=="Linear_BT709"                         ? ("Rec709")
+        \ : Input=="Linear_BT709"              && Output=="Linear_BT601_NTSC"                 ? ("Rec601")
+        \ : Input=="Linear_BT709"              && Output=="Linear_BT601_PAL"                   ? ("Rec601")
+        \ : Input=="Linear_BT709"              && Output=="BT2020_HLG"                            ? ("Rec2020")
+        \ : Input=="Linear_BT709"              && Output=="BT2100_PQ"                              ? ("Rec2020")
+        \ : Input=="Linear_BT709"              && Output=="DCI_XYZ"                                 ? ("Rec709")
+        \ : Input=="BT2100_PQ"                   && Output=="Linear_BT2020"                       ? ("Rec2020")
+        \ : Input=="BT2100_PQ"                   && Output=="Linear_BT709"                         ? ("Rec709")
+        \ : Input=="BT2100_PQ"                   && Output=="BT2020_HLG"                            ? ("Rec2020")
+        \ : Input=="CLog3"                         && Output=="Linear_BT709"                         ? ("Rec709")
+        \ : Input=="CLog3"                         && Output=="BT2020_HLG"                            ? ("Rec2020")
+        \ : Input=="CLog3"                         && Output=="BT2100_PQ"                              ? ("Rec2020")
+        \ : Input=="SLog2"                         && Output=="Linear_BT709"                         ? ("Rec709")
+        \ : Input=="SLog3"                         && Output=="Linear_BT709"                         ? ("Rec709")
+        \ : Input=="BT2020_HLG"                 && Output=="Linear_BT709"                         ? ("Rec709")
+        \ : Input=="BT2020_HLG"                 && Output=="BT2100_PQ"                              ? ("Rec2020")
+        \ : Input=="DCI_XYZ"                      && Output=="Linear_BT709"                         ? ("Rec709")
+        \ : Input=="LogC"                           && Output=="Linear_BT709"                         ? ("Rec709")
+        \ : Input=="VLog"                           && Output=="Linear_BT709"                         ? ("Rec709")
+        \ : Input=="ZLog"                           && Output=="Linear_BT709"                        ? ("Rec709")
+        \ : Input=="ZLog2"                          && Output=="Linear_BT709"                        ? ("Rec709")
+        \ : Input=="dvhe0509"                     && Output=="Linear_BT709"                         ? ("Rec709")
+        \ : ("Rec709")
 
 
     Assert(CubeStr != "","LinearTransformation: Transformation not supported, please choose a valid input and output Input='"+Input+"' Output='"+Output+"'" )
@@ -113,17 +140,17 @@ Function LinearTransformation(clip clp, string "Input", string "Output") {
 
     out = Last.ConvertBits(bits=bpc, dither=1)
 
-    out   = original == "YV12"   ? out.ConverttoYV12
+    out   = original == "YV12"   ? out.ConverttoYV12(matrix=output_Matrix)
         \ : original == "YUY2"   ? out.ConverttoYUY2
-        \ : original == "RGB24"  ? out.ConverttoRGB24
-        \ : original == "RGB32"  ? out.ConverttoRGB32
-        \ : original == "YV16"   ? out.ConverttoYV16
-        \ : original == "YV24"   ? out.ConverttoYV24
-        \ : original == "RGB48"  ? out.ConverttoRGB48
-        \ : original == "RGB64"  ? out.ConverttoRGB64
-        \ : original == "YUV420" ? out.ConverttoYUV420
-        \ : original == "YUV422" ? out.ConverttoYUV422
-        \ : original == "YUV444" ? out.ConverttoYUV444
+        \ : original == "RGB24"  ? out.ConverttoRGB24(matrix=output_Matrix)
+        \ : original == "RGB32"  ? out.ConverttoRGB32(matrix=output_Matrix)
+        \ : original == "YV16"   ? out.ConverttoYV16(matrix=output_Matrix)
+        \ : original == "YV24"   ? out.ConverttoYV24(matrix=output_Matrix)
+        \ : original == "RGB48"  ? out.ConverttoRGB48(matrix=output_Matrix)
+        \ : original == "RGB64"  ? out.ConverttoRGB64(matrix=output_Matrix)
+        \ : original == "YUV420" ? out.ConverttoYUV420(matrix=output_Matrix)
+        \ : original == "YUV422" ? out.ConverttoYUV422(matrix=output_Matrix)
+        \ : original == "YUV444" ? out.ConverttoYUV444(matrix=output_Matrix)
         \ : out [* Must be RGBP *]
     return out
 }
