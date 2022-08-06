@@ -21,8 +21,6 @@ LinearTransformation(Input="Linear_BT709", Output="BT2100_PQ")
 <br>
 LinearTransformation(Input="Linear_BT709", Output="DCI_XYZ")
 <br>
-LinearTransformation(Input="Linear_BT709", Output="ZLog")
-<br>
 LinearTransformation(Input="BT2100_PQ", Output="Linear_BT2020")
 <br>
 LinearTransformation(Input="BT2100_PQ", Output="Linear_BT709")
