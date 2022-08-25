@@ -59,7 +59,7 @@ Function LinearTransformation(clip clp, string "Input", string "Output") {
         \   Input=="Linear_BT601_NTSC"       && Output=="Linear_BT709"                        ? (1)
         \ : Input=="Linear_BT601_PAL"        && Output=="Linear_BT709"                         ? (1)
         \ : Input=="Linear_BT709"              && Output=="Linear_BT601_NTSC"                 ? (6)
-        \ : Input=="Linear_BT709"              && Output=="Linear_BT601_PAL"                   ? (3)
+        \ : Input=="Linear_BT709"              && Output=="Linear_BT601_PAL"                   ? (5)
         \ : Input=="Linear_BT709"              && Output=="BT2020_HLG"                            ? (9)
         \ : Input=="Linear_BT709"              && Output=="BT2100_PQ"                              ? (9)
         \ : Input=="Linear_BT709"              && Output=="DCI_XYZ"                                 ? (2)
