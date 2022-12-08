@@ -27,6 +27,8 @@ LinearTransformation(Input="BT2100_PQ", Output="Linear_BT709")
 <br>
 LinearTransformation(Input="BT2100_PQ", Output="BT2020_HLG")
 <br>
+LinearTransformation(Input="BT2100_PQ", Output="DCI_XYZ")
+<br>
 LinearTransformation(Input="CLog3", Output="Linear_BT709")
 <br>
 LinearTransformation(Input="CLog3", Output="BT2020_HLG")
@@ -41,7 +43,13 @@ LinearTransformation(Input="BT2020_HLG", Output="Linear_BT709")
 <br>
 LinearTransformation(Input="BT2020_HLG", Output="BT2100_PQ")
 <br>
+LinearTransformation(Input="BT2020_HLG", Output="DCI_XYZ")
+<br>
 LinearTransformation(Input="DCI_XYZ", Output="Linear_BT709")
+<br>
+LinearTransformation(Input="DCI_XYZ", Output="BT2020_HLG")
+<br>
+LinearTransformation(Input="DCI_XYZ", Output="BT2100_PQ")
 <br>
 LinearTransformation(Input="LogC", Output="Linear_BT709")
 <br>
