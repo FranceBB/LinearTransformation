@@ -1,6 +1,6 @@
 # LinearTransformation
 ![alt text](https://i.ytimg.com/vi/kYB8IZa5AuE/maxresdefault.jpg)
-This script performs Linear Transformations based on a matrix conversion. Matrices are made by Francesco Bucciantini.
+This script performs Linear Transformations based on a matrix conversion.
 <br>
 The function has two parameters: Input and Output.
 <br>
@@ -105,6 +105,7 @@ Those LUTs are used by everyone for free, from companies that deal with broadcas
 <br>
 - Compatible with Avisynth+
 - Compatible with VapourSynth
+- Compatible with FFMpeg
 - Compatible with AVID Media Composer
 - Compatible with Davinci Resolve
 - Compatible with Adobe Premiere
@@ -112,27 +113,77 @@ Those LUTs are used by everyone for free, from companies that deal with broadcas
 <br>
 
 # Slog3 to BT709 SDR 100 nits
-![alt text](https://i.imgur.com/TIRdtG5.png)
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/d0efb065-8c47-47aa-87aa-586c7858206f)
 <br>
-![alt text](https://i.imgur.com/9E6yr7S.png)
-![alt text](https://i.imgur.com/7DHYloZ.png)
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/b69e757b-13c1-4ae7-80eb-56118f9b736a)
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/ffc85947-6b60-4adc-9cd6-f7fa46b6015d)
 <br>
-![alt text](https://i.imgur.com/kYlmAet.png)
-![alt text](https://i.imgur.com/VaDIB0M.png)
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/be1b3ae5-edf7-4c71-9551-cacd41af651e)
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/adb129e3-6846-46a6-aab1-b090cc17adea)
+<br>
+# Slog2 to BT709 SDR 100 nits
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/35911b2e-f26c-4f05-bb35-0a375d3997e3)
+<br>
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/485b71e2-231a-4ddd-b041-88af7b1fa444)
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/ed676963-68ab-4831-9c7d-af7fcbd27c3c)
+<br>
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/f4722fe6-7472-4bf1-8aa8-45155cd3529b)
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/2547ed58-450e-4f76-928b-0eeef5a5ca1f)
+<br>
+# LogC to BT709 SDR 100 nits
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/e3bd1303-3729-4675-96ad-e3bfb68c3b73)
+<br>
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/3f58f8ff-49ff-46a5-a429-c88fb9064edd)
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/52d67d54-7916-4512-a14d-58fd7bf3d58d)
+<br>
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/dfefa7cd-146f-44f3-aab9-ea5e105eed94)
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/3b7b8068-83a5-48e6-9235-3aa5c174e8f5)
+<br>
+# DCI P3 to BT709 SDR 100 nits
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/f19c704f-b039-4484-88e6-b50339a83ac8)
+<br>
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/ae6ed523-97c8-452b-be1f-63fac5a2b7b4)
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/93d09c21-4d8d-4b88-9ae6-13a868162d31)
 <br>
 # Zlog2 to BT709 SDR 100 nits
 ![alt text](https://i.imgur.com/pBC0YSQ.png)
-![alt text](https://i.imgur.com/wOOdIb4.png)
-![alt text](https://i.imgur.com/NzxlprK.png)
+<br>
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/8982cb0b-27c0-467a-a365-499c5c33b3ad)
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/e80f0a65-0ca1-46e3-96ce-340b1974f66a)
+<br>
+# Clog3 to HLG HDR 1000 nits
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/406d798b-9ee3-424b-81cf-f00a0cdf3a76)
+<br>
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/6abbef5d-0f2a-4564-8c6f-2390967bbfca)
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/94f5241d-de01-4d6c-8345-54512a43cd87)
+<br>
+# PQ HDR to BT2020 SDR 100 nits
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/b1d117ed-d18c-40fb-acbb-abdc7f791ae8)
+<br>
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/0bb22dd1-985f-43b0-b507-e963b2e0c25c)
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/bca76652-0ed9-46cf-a787-eeab20aeccaa)
+<br>
+# BT709 SDR to BT601 SDR
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/92833b16-877a-40a1-ae98-9b414bb2655c)
+<br>
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/e03cf7ae-5de4-4ff7-82f3-15fb7664e10a)
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/930a2ca1-5e2b-45aa-9b16-31129ea8fd10)
+<br>
 # Dolby Vision Version 1.0 dvhe0509 (left) to BT709 SDR 100 nits (right)
-![alt text](https://i.imgur.com/2RSX7iQ.png)
-![alt text](https://i.imgur.com/XaG01v4.png)
-![alt text](https://i.imgur.com/ewnF3yj.png)
-![alt text](https://i.imgur.com/1XuQzoU.png)
-![alt text](https://i.imgur.com/cqRiSMw.png)
-![alt text](https://i.imgur.com/EPurW3b.png)
-![alt text](https://i.imgur.com/ZRZFgL4.png)
-![alt text](https://i.imgur.com/5z8ABGm.png)
-![alt text](https://i.imgur.com/IM1nuA2.png)
-![alt text](https://i.imgur.com/PGtRZQm.png)
-![alt text](https://i.imgur.com/vZ5gIQV.png)
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/78269153-491a-4972-be4c-7a4893b59241)
+<br>
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/ef7bdbb0-b979-4be3-9995-1ea88ec5a9b4)
+<br>
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/005a1235-2804-4f19-bc1b-98e94cea533a)
+<br>
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/7887486b-d5d5-4133-aa29-c492e0731806)
+<br>
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/b31027b6-598e-4fff-8401-2771d0afffa6)
+<br>
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/4e0cca7e-aa9e-499a-a03e-e5663eac2b74)
+<br>
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/ad6f163b-efc5-4673-9934-63abef13f244)
+<br>
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/cc362fd8-f386-40e2-b686-9a1fd9282e65)
+<br>
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/4751f37e-e188-4fe3-a454-e3e9b65422ea)
