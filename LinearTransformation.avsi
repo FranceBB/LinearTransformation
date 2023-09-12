@@ -152,7 +152,7 @@ Function LinearTransformation(clip clp, string "Input", string "Output") {
 
     Assert(CubeStr != "","LinearTransformation: Transformation not supported, please choose a valid input and output Input='"+Input+"' Output='"+Output+"'" )
 
-    Cube(clp, myPath + CubeStr + ".cube", fullrange=true).propset("_Matrix", my_Matrix).propset("_Transfer", my_transfer)
+    Cube(clp, myPath + CubeStr + ".cube", interp=1, fullrange=1).propset("_Matrix", my_Matrix).propset("_Transfer", my_transfer)
 
     out = Last.ConvertBits(bits=bpc, dither=1)
 
