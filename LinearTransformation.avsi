@@ -1,13 +1,20 @@
-Function LinearTransformation(clip clp, string "Input", string "Output") {
+Function LinearTransformation(clip clp, string "Input", string "Output", string "Interpolation") {
 
     Input  = Default(Input ,"")        
     Output = Default(Output,"")
+    Interpolation = Default(Interpolation, "1")
+    
+    #Check interpolation method and align to avscube (Trilinear = 0, Tetrahedral = 1)
+    if (Interpolation == "Trilinear") {
+        Interpolation = 0
+       }
+    else
+    {
+        Interpolation = 1
+     }
     
     #set the location of your Avisynth installation and/orthe LUTs downloaded
     mypath = "C:\Program Files (x86)\AviSynth+\LUTs\"
-    
-    #if x86 OS like Windows XP, then use
-    #mypath = "C:\Program Files\AviSynth+\LUTs\"
 
     # Removed IsRGB, that just means Any type of RGB at all, Interleaved, planar, any bit depth at all.
     # We've used "RGBP" for Planar RGB
@@ -152,7 +159,7 @@ Function LinearTransformation(clip clp, string "Input", string "Output") {
 
     Assert(CubeStr != "","LinearTransformation: Transformation not supported, please choose a valid input and output Input='"+Input+"' Output='"+Output+"'" )
 
-    Cube(clp, myPath + CubeStr + ".cube", interp=1, fullrange=1).propset("_Matrix", my_Matrix).propset("_Transfer", my_transfer)
+    Cube(clp, myPath + CubeStr + ".cube", interp=Interpolation, fullrange=1).propset("_Matrix", my_Matrix).propset("_Transfer", my_transfer)
 
     out = Last.ConvertBits(bits=bpc, dither=1)
 
