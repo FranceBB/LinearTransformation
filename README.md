@@ -2,7 +2,11 @@
 ![alt text](https://i.ytimg.com/vi/kYB8IZa5AuE/maxresdefault.jpg)
 This script performs Linear Transformations based on a matrix conversion.
 <br>
-The function has two parameters: Input and Output.
+The function has two mandatory parameters: Input and Output.
+<br>
+The function also has one optional parameter: Interpolation.
+<br>
+The interpolation parameter can either be set to "Trilinear" or "Tetrahedral" and by default it's set to Tetrahedral as it achieves better results.
 <br>
 Currently, only those conversions are supported:
 <br>
