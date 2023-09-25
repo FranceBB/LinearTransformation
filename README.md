@@ -8,6 +8,10 @@ The function also has one optional parameter: Interpolation.
 <br>
 The interpolation parameter can either be set to "Trilinear" or "Tetrahedral" and by default it's set to Tetrahedral as it achieves better results.
 <br>
+Source (left) - Trilinear (center) - Tetrahedral (right):
+![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/f742fb52-e382-4317-abf4-342c55a1790c)
+As you can see, in the right hand side waveform (tetrahedral) there are no ripples, unlike the ones you can see in the trilinear interpolation at the center.
+<br>
 Currently, only those conversions are supported:
 <br>
 <br>
