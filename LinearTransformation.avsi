@@ -26,13 +26,26 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
 
     Assert(original != "", "LinearTransformation: Color Format not supported," + Chr(10)+"only 4:2:0, 4:2:2, 4:4:4 and RGB are supported")
 
-    Bpc = clp.BitsPerComponent     # original bits per component
+    #Save original bits per component
+    Bpc = clp.BitsPerComponent
 
-    clp = (Original=="YUY2") ? clp.ConvertToYV16 : clp              # There is not 16 bit version of YUY2
+    #There's no 16bit version of 422 interleaved so we gotta convert to planar first
+    clp = (Original=="YUY2") ? clp.ConvertToYV16 : clp
+    
+    #Check if the input has the alpha channel
+     if (Original == "RGB32") {
+        my_alpha = clp.ShowAlpha(pixel_type="RGB24")
+        clp = clp.RemoveAlphaPlane()
+        has_alpha_plane = true
+       }
+    else
+    {
+        has_alpha_plane = false
+     }
 
 
     # Convert to 16 bit first, reduce YUV -> RGB colorspace conversion losses
-    clp = clp.ConvertBits(bits=16).ConvertToPlanarRGB               # If already PlanarRGB 16 bit then should do nearly nothing
+    clp = clp.ConvertBits(bits=16).ConvertToPlanarRGB()               # If already PlanarRGB 16 bit then should do nearly nothing
 
     # Generating the string for the LUT selection
         CubeStr =
@@ -158,10 +171,45 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
 
 
     Assert(CubeStr != "","LinearTransformation: Transformation not supported, please choose a valid input and output Input='"+Input+"' Output='"+Output+"'" )
+    
+    #If the input has the alpha channel it needs to be converted too
+    if (has_alpha_plane == true) {
+        
+        #Alpha channel conversion
+        ConvertBits(my_alpha, 16)
+        ConvertToPlanarRGB()
+        Cube(myPath + CubeStr + ".cube", interp=Interpolation, fullrange=1)
+        ConverttoY()
+        my_alpha=last
+        
+        #Normal channel conversion
+        Cube(clp, myPath + CubeStr + ".cube", interp=Interpolation, fullrange=1)
+        my_video=last
+        
+        #Merge converted normal channel with converted alpha channel
+        AddAlphaPlane(my_video, my_alpha)
+        
+        #Set frame properties
+        propset("_Matrix", my_Matrix)
+        propset("_Transfer", my_transfer)
+        
+        out=last
+        
+       }
+    else
+    {
+        #Normal channel conversion
+        Cube(clp, myPath + CubeStr + ".cube", interp=Interpolation, fullrange=1)
+        
+        #Set frame properties
+        propset("_Matrix", my_Matrix)
+        propset("_Transfer", my_transfer)
+        
+        out=last
+        
+     }
 
-    Cube(clp, myPath + CubeStr + ".cube", interp=Interpolation, fullrange=1).propset("_Matrix", my_Matrix).propset("_Transfer", my_transfer)
-
-    out = Last.ConvertBits(bits=bpc, dither=1)
+    out = ConvertBits(out, bits=bpc, dither=1)
 
     out   = original == "YV12"   ? out.ConverttoYV12(matrix=output_Matrix)
         \ : original == "YUY2"   ? out.ConverttoYUY2
