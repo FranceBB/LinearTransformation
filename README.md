@@ -177,7 +177,7 @@ Those LUTs are used by everyone for free, from companies that deal with broadcas
 ![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/e03cf7ae-5de4-4ff7-82f3-15fb7664e10a)
 ![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/930a2ca1-5e2b-45aa-9b16-31129ea8fd10)
 <br>
-# Dolby Vision Version 1.0 dvhe0509 (left) to BT709 SDR 100 nits (right)
+# Dolby Vision Version 1.0 IPTc2 dvhe0509 (left) to BT709 SDR 100 nits (right)
 ![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/78269153-491a-4972-be4c-7a4893b59241)
 <br>
 ![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/ef7bdbb0-b979-4be3-9995-1ea88ec5a9b4)
