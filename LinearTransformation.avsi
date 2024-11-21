@@ -234,6 +234,7 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
         #Set frame properties
         propset("_Matrix", my_Matrix)
         propset("_Transfer", my_transfer)
+        propset("_Primaries", my_primaries)
         
         out=last
         
