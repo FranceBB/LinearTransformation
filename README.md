@@ -93,6 +93,21 @@ ConvertToPlanarRGB()
 Cube("C:\Programmi\AviSynth+\LUTs\example.cube")
 <br>
 <br>
+**How to use my LUTs in VapourSynth:**
+<br>
+import vapoursynth as vs
+<br>
+core = vs.core
+<br>
+core.ffms2.Source(r'example.mxf')
+<br>
+vid = core.resize.Spline64(vid, format=vs.RGBS)
+<br>
+vid = core.timecube.Cube(vid, cube=r"C:\Programmi\AviSynth+\LUTs\example.cube")
+<br>
+vid.set_output ()
+<br>
+<br>
 **How to use my LUTs in FFMpeg**:
 <br>
 ffmpeg.exe -i "source.m2ts" -vf lut3d='example.cube' -c:v whatever -c:a whatever -f mkv "output.mkv"
@@ -147,7 +162,7 @@ Those LUTs are used by everyone for free, from companies that deal with broadcas
 ![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/dfefa7cd-146f-44f3-aab9-ea5e105eed94)
 ![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/3b7b8068-83a5-48e6-9235-3aa5c174e8f5)
 <br>
-# DCI P3 to BT709 SDR 100 nits
+# DCI P3 XYZ to BT709 RGB SDR 100 nits
 ![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/f19c704f-b039-4484-88e6-b50339a83ac8)
 <br>
 ![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/ae6ed523-97c8-452b-be1f-63fac5a2b7b4)
