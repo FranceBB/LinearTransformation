@@ -23,11 +23,15 @@ LinearTransformation(Input="Linear_BT709", Output="Linear_BT601_NTSC")
 <br>
 LinearTransformation(Input="Linear_BT709", Output="Linear_BT601_PAL")
 <br>
+LinearTransformation(Input="Linear_BT709", Output="Linear_BT2020")
+<br>
 LinearTransformation(Input="Linear_BT709", Output="BT2020_HLG")
 <br>
 LinearTransformation(Input="Linear_BT709", Output="BT2100_PQ")
 <br>
 LinearTransformation(Input="Linear_BT709", Output="DCI_XYZ")
+<br>
+LinearTransformation(Input="Linear_BT2020", Output="Linear_BT709")
 <br>
 LinearTransformation(Input="BT2100_PQ", Output="Linear_BT2020")
 <br>
