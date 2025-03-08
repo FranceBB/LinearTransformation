@@ -2,6 +2,21 @@
 ![alt text](https://i.ytimg.com/vi/kYB8IZa5AuE/maxresdefault.jpg)
 This script performs Linear Transformations based on a matrix conversion.
 <br>
+<br>
+**Parameters**
+<br>
+LinearTransformation(clip clp, string "Input", string "Output", string "Interpolation")
+<br>
+<br>
+clip = input clip
+<br>
+string Input = source input you're starting from
+<br>
+string Output = destination output you want to go to
+<br>
+string Interpolation = interpolation method to use (Trilinear or Tetrahedral)
+<br>
+<br>
 The function has two mandatory parameters: Input and Output.
 <br>
 The function also has one optional parameter: Interpolation.
