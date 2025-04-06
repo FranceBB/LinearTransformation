@@ -58,6 +58,10 @@ LinearTransformation(Input="BT2100_PQ", Output="DCI_XYZ")
 <br>
 LinearTransformation(Input="CLog3", Output="Linear_BT709")
 <br>
+LinearTransformation(Input="CLog3", Output="Linear_BT601_PAL")
+<br>
+LinearTransformation(Input="CLog3", Output="Linear_BT601_NTSC")
+<br>
 LinearTransformation(Input="CLog3", Output="BT2020_HLG")
 <br>
 LinearTransformation(Input="CLog3", Output="BT2100_PQ")
@@ -65,6 +69,10 @@ LinearTransformation(Input="CLog3", Output="BT2100_PQ")
 LinearTransformation(Input="SLog2", Output="Linear_BT709")
 <br>
 LinearTransformation(Input="SLog3", Output="Linear_BT709")
+<br>
+LinearTransformation(Input="SLog3", Output="Linear_BT601_PAL")
+<br>
+LinearTransformation(Input="SLog3", Output="Linear_BT601_NTSC")
 <br>
 LinearTransformation(Input="BT2020_HLG", Output="Linear_BT709")
 <br>
@@ -80,7 +88,15 @@ LinearTransformation(Input="DCI_XYZ", Output="BT2100_PQ")
 <br>
 LinearTransformation(Input="LogC", Output="Linear_BT709")
 <br>
+LinearTransformation(Input="LogC", Output="Linear_BT601_PAL")
+<br>
+LinearTransformation(Input="LogC", Output="Linear_BT601_NTSC")
+<br>
 LinearTransformation(Input="VLog", Output="Linear_BT709")
+<br>
+LinearTransformation(Input="VLog", Output="Linear_BT601_PAL")
+<br>
+LinearTransformation(Input="VLog", Output="Linear_BT601_NTSC")
 <br>
 LinearTransformation(Input="ZLog", Output="Linear_BT709")
 <br>
