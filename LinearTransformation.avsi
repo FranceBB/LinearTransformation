@@ -63,10 +63,14 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
         \ : Input=="BT2100_PQ"                     && Output=="BT2020_HLG"                          ? "PQ_to_HLG"
         \ : Input=="BT2100_PQ"                     && Output=="DCI_XYZ"                               ? "BT2020_PQ_to_DCI_XYZ"
         \ : Input=="CLog3"                           && Output=="Linear_BT709"                       ? "CLog3_to_BT709"
+        \ : Input=="CLog3"                           && Output=="Linear_BT601_PAL"                 ? "Clog3_to_BT601_PAL"
+        \ : Input=="CLog3"                           && Output=="Linear_BT601_NTSC"               ? "Clog3_to_BT601_NTSC"
         \ : Input=="CLog3"                           && Output=="BT2020_HLG"                           ? "CLog3_to_HDR_HLG"
         \ : Input=="CLog3"                           && Output=="BT2100_PQ"                            ? "CLog3_to_HDR_PQ"
         \ : Input=="SLog2"                           && Output=="Linear_BT709"                        ? "Slog2_to_BT709"
         \ : Input=="SLog3"                           && Output=="Linear_BT709"                        ? "Slog3_to_BT709"
+        \ : Input=="SLog3"                           && Output=="Linear_BT601_PAL"                 ? "Slog3_to_BT601_PAL"
+        \ : Input=="SLog3"                           && Output=="Linear_BT601_NTSC"               ? "Slog3_to_BT601_NTSC"
         \ : Input=="BT2020_HLG"                   && Output=="Linear_BT709"                        ? "HLG_BT2020_to_Linear_BT709"
         \ : Input=="BT2020_HLG"                   && Output=="BT2100_PQ"                             ? "HLG_to_PQ"
         \ : Input=="BT2020_HLG"                   && Output=="DCI_XYZ"                                ? "BT2020_HLG_to_DCI_XYZ"
@@ -74,7 +78,11 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
         \ : Input=="DCI_XYZ"                        && Output=="BT2020_HLG"                           ? "DCI_XYZ_to_BT2020_HLG"
         \ : Input=="DCI_XYZ"                        && Output=="BT2100_PQ"                             ? "DCI_XYZ_to_BT2020_PQ"
         \ : Input=="LogC"                             && Output=="Linear_BT709"                        ? "LogC_to_BT709"
+        \ : Input=="LogC"                             && Output=="Linear_BT601_PAL"                 ? "LogC_to_BT601_PAL"
+        \ : Input=="LogC"                             && Output=="Linear_BT601_NTSC"               ? "LogC_to_BT601_NTSC"
         \ : Input=="VLog"                             && Output=="Linear_BT709"                        ? "Vlog_to_BT709"
+        \ : Input=="VLog"                             && Output=="Linear_BT601_PAL"                 ? "Vlog_to_BT601_PAL"
+        \ : Input=="VLog"                             && Output=="Linear_BT601_NTSC"               ? "Vlog_to_BT601_NTSC"
         \ : Input=="ZLog"                             && Output=="Linear_BT709"                        ? "Z-Log_to_BT709"
         \ : Input=="ZLog2"                            && Output=="Linear_BT709"                        ? "ZLog2_to_BT709"
         \ : Input=="dvhe0509"                       && Output=="Linear_BT709"                        ? "dvhe0509_to_BT709"
@@ -96,10 +104,14 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
         \ : Input=="BT2100_PQ"                   && Output=="DCI_XYZ"                                 ? (2)
         \ : Input=="Linear_BT2020"            && Output=="Linear_BT709"                         ? (1)
         \ : Input=="CLog3"                         && Output=="Linear_BT709"                         ? (1)
+        \ : Input=="CLog3"                         && Output=="Linear_BT601_PAL"                  ? (5)
+        \ : Input=="CLog3"                         && Output=="Linear_BT601_NTSC"                 ? (6)
         \ : Input=="CLog3"                         && Output=="BT2020_HLG"                            ? (9)
         \ : Input=="CLog3"                         && Output=="BT2100_PQ"                              ? (9)
         \ : Input=="SLog2"                         && Output=="Linear_BT709"                         ? (1)
         \ : Input=="SLog3"                         && Output=="Linear_BT709"                         ? (1)
+        \ : Input=="SLog3"                         && Output=="Linear_BT601_PAL"                   ? (5)
+        \ : Input=="SLog3"                         && Output=="Linear_BT601_NTSC"                 ? (6)
         \ : Input=="BT2020_HLG"                 && Output=="Linear_BT709"                         ? (1)
         \ : Input=="BT2020_HLG"                 && Output=="BT2100_PQ"                              ? (9)
         \ : Input=="BT2020_HLG"                 && Output=="DCI_XYZ"                                 ? (2)
@@ -107,10 +119,14 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
         \ : Input=="DCI_XYZ"                      && Output=="BT2020_HLG"                            ? (9)
         \ : Input=="DCI_XYZ"                      && Output=="BT2100_PQ"                              ? (9)
         \ : Input=="LogC"                           && Output=="Linear_BT709"                         ? (1)
-        \ : Input=="VLog"                           && Output=="Linear_BT709"                         ? (1)
+        \ : Input=="LogC"                           && Output=="Linear_BT601_PAL"                  ? (5)
+        \ : Input=="LogC"                           && Output=="Linear_BT601_NTSC"                ? (6)
+        \ : Input=="VLog"                           && Output=="Linear_BT709"                        ? (1)
+        \ : Input=="VLog"                           && Output=="Linear_BT601_PAL"                  ? (5)
+        \ : Input=="VLog"                           && Output=="Linear_BT601_NTSC"                ? (6)
         \ : Input=="ZLog"                           && Output=="Linear_BT709"                        ? (1)
-        \ : Input=="ZLog2"                          && Output=="Linear_BT709"                        ? (1)
-        \ : Input=="dvhe0509"                     && Output=="Linear_BT709"                         ? (1)
+        \ : Input=="ZLog2"                          && Output=="Linear_BT709"                       ? (1)
+        \ : Input=="dvhe0509"                     && Output=="Linear_BT709"                        ? (1)
         \ : (2)
 
                 my_transfer =
@@ -128,10 +144,14 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
         \ : Input=="BT2100_PQ"                   && Output=="DCI_XYZ"                                 ? (17)
         \ : Input=="Linear_BT2020"            && Output=="Linear_BT709"                         ? (1)
         \ : Input=="CLog3"                         && Output=="Linear_BT709"                         ? (1)
+        \ : Input=="CLog3"                         && Output=="Linear_BT601_PAL"                  ? (6)
+        \ : Input=="CLog3"                         && Output=="Linear_BT601_NTSC"                 ? (6)
         \ : Input=="CLog3"                         && Output=="BT2020_HLG"                            ? (18)
         \ : Input=="CLog3"                         && Output=="BT2100_PQ"                              ? (16)
         \ : Input=="SLog2"                         && Output=="Linear_BT709"                         ? (1)
         \ : Input=="SLog3"                         && Output=="Linear_BT709"                         ? (1)
+        \ : Input=="SLog3"                         && Output=="Linear_BT601_PAL"                  ? (6)
+        \ : Input=="SLog3"                         && Output=="Linear_BT601_NTSC"                 ? (6)
         \ : Input=="BT2020_HLG"                 && Output=="Linear_BT709"                         ? (1)
         \ : Input=="BT2020_HLG"                 && Output=="BT2100_PQ"                              ? (16)
         \ : Input=="BT2020_HLG"                 && Output=="DCI_XYZ"                                 ? (17)
@@ -139,7 +159,11 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
         \ : Input=="DCI_XYZ"                      && Output=="BT2020_HLG"                            ? (18)
         \ : Input=="DCI_XYZ"                      && Output=="BT2100_PQ"                              ? (16)
         \ : Input=="LogC"                           && Output=="Linear_BT709"                         ? (1)
+        \ : Input=="LogC"                           && Output=="Linear_BT601_PAL"                   ? (6)
+        \ : Input=="LogC"                           && Output=="Linear_BT601_NTSC"                 ? (6)
         \ : Input=="VLog"                           && Output=="Linear_BT709"                         ? (1)
+        \ : Input=="VLog"                           && Output=="Linear_BT601_PAL"                  ? (6)
+        \ : Input=="VLog"                           && Output=="Linear_BT601_NTSC"                ? (6)
         \ : Input=="ZLog"                           && Output=="Linear_BT709"                        ? (1)
         \ : Input=="ZLog2"                          && Output=="Linear_BT709"                        ? (1)
         \ : Input=="dvhe0509"                     && Output=="Linear_BT709"                         ? (1)
@@ -160,10 +184,14 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
         \ : Input=="BT2100_PQ"                   && Output=="DCI_XYZ"                                 ? (11)
         \ : Input=="Linear_BT2020"            && Output=="Linear_BT709"                         ? (1)
         \ : Input=="CLog3"                         && Output=="Linear_BT709"                         ? (1)
+        \ : Input=="CLog3"                         && Output=="Linear_BT601_PAL"                   ? (5)
+        \ : Input=="CLog3"                         && Output=="Linear_BT601_NTSC"                 ? (6)
         \ : Input=="CLog3"                         && Output=="BT2020_HLG"                            ? (9)
         \ : Input=="CLog3"                         && Output=="BT2100_PQ"                              ? (9)
         \ : Input=="SLog2"                         && Output=="Linear_BT709"                         ? (1)
         \ : Input=="SLog3"                         && Output=="Linear_BT709"                         ? (1)
+        \ : Input=="SLog3"                         && Output=="Linear_BT601_PAL"                  ? (5)
+        \ : Input=="SLog3"                         && Output=="Linear_BT601_NTSC"                 ? (6)
         \ : Input=="BT2020_HLG"                 && Output=="Linear_BT709"                         ? (1)
         \ : Input=="BT2020_HLG"                 && Output=="BT2100_PQ"                              ? (9)
         \ : Input=="BT2020_HLG"                 && Output=="DCI_XYZ"                                 ? (11)
@@ -171,7 +199,11 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
         \ : Input=="DCI_XYZ"                      && Output=="BT2020_HLG"                            ? (9)
         \ : Input=="DCI_XYZ"                      && Output=="BT2100_PQ"                              ? (9)
         \ : Input=="LogC"                           && Output=="Linear_BT709"                         ? (1)
+        \ : Input=="LogC"                           && Output=="Linear_BT601_PAL"                  ? (5)
+        \ : Input=="LogC"                           && Output=="Linear_BT601_NTSC"                 ? (6)
         \ : Input=="VLog"                           && Output=="Linear_BT709"                         ? (1)
+        \ : Input=="VLog"                           && Output=="Linear_BT601_PAL"                  ? (5)
+        \ : Input=="VLog"                           && Output=="Linear_BT601_NTSC"                ? (6)
         \ : Input=="ZLog"                           && Output=="Linear_BT709"                        ? (1)
         \ : Input=="ZLog2"                          && Output=="Linear_BT709"                        ? (1)
         \ : Input=="dvhe0509"                     && Output=="Linear_BT709"                         ? (1)
@@ -192,10 +224,14 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
         \ : Input=="BT2100_PQ"                   && Output=="DCI_XYZ"                                 ? ("Rec709")
         \ : Input=="Linear_BT2020"            && Output=="Linear_BT709"                         ? ("Rec709")
         \ : Input=="CLog3"                         && Output=="Linear_BT709"                         ? ("Rec709")
+        \ : Input=="CLog3"                         && Output=="Linear_BT601_PAL"                  ? ("Rec601")
+        \ : Input=="CLog3"                         && Output=="Linear_BT601_NTSC"                 ? ("Rec601")
         \ : Input=="CLog3"                         && Output=="BT2020_HLG"                            ? ("Rec2020")
         \ : Input=="CLog3"                         && Output=="BT2100_PQ"                              ? ("Rec2020")
         \ : Input=="SLog2"                         && Output=="Linear_BT709"                         ? ("Rec709")
         \ : Input=="SLog3"                         && Output=="Linear_BT709"                         ? ("Rec709")
+        \ : Input=="SLog3"                         && Output=="Linear_BT601_PAL"                   ? ("Rec601")
+        \ : Input=="SLog3"                         && Output=="Linear_BT601_NTSC"                  ? ("Rec601")
         \ : Input=="BT2020_HLG"                 && Output=="Linear_BT709"                         ? ("Rec709")
         \ : Input=="BT2020_HLG"                 && Output=="BT2100_PQ"                              ? ("Rec2020")
         \ : Input=="BT2020_HLG"                 && Output=="DCI_XYZ"                                 ? ("Rec709")
@@ -203,7 +239,11 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
         \ : Input=="DCI_XYZ"                      && Output=="BT2020_HLG"                            ? ("Rec2020")
         \ : Input=="DCI_XYZ"                      && Output=="BT2100_PQ"                              ? ("Rec2020")
         \ : Input=="LogC"                           && Output=="Linear_BT709"                         ? ("Rec709")
+        \ : Input=="LogC"                           && Output=="Linear_BT601_PAL"                   ? ("Rec601")
+        \ : Input=="LogC"                           && Output=="Linear_BT601_NTSC"                 ? ("Rec601")
         \ : Input=="VLog"                           && Output=="Linear_BT709"                         ? ("Rec709")
+        \ : Input=="VLog"                           && Output=="Linear_BT601_PAL"                   ? ("Rec601")
+        \ : Input=="VLog"                           && Output=="Linear_BT601_NTSC"                 ? ("Rec601")
         \ : Input=="ZLog"                           && Output=="Linear_BT709"                        ? ("Rec709")
         \ : Input=="ZLog2"                          && Output=="Linear_BT709"                        ? ("Rec709")
         \ : Input=="dvhe0509"                     && Output=="Linear_BT709"                         ? ("Rec709")
