@@ -49,7 +49,9 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
 
     # Generating the string for the LUT selection
         CubeStr =
-        \   Input=="Linear_BT601_NTSC"        && Output=="Linear_BT709"                      ? "BT601_NTSC_to_BT709"
+        \   Input=="Linear_BT601_NTSC"        && Output=="Linear_BT601_NTSC-J"           ? "BT601_NTSC_to_BT601_NTSC-J"
+        \ : Input=="Linear_BT601_NTSC-J"     && Output=="Linear_BT601_NTSC"              ? "BT601_NTSC-J_to_BT601_NTSC"
+        \ : Input=="Linear_BT601_NTSC"        && Output=="Linear_BT709"                      ? "BT601_NTSC_to_BT709"
         \ : Input=="Linear_BT601_PAL"          && Output=="Linear_BT709"                      ? "BT601_PAL_to_BT709"
         \ : Input=="Linear_BT709"                && Output=="Linear_BT601_NTSC"              ? "BT709_to_BT601_NTSC"
         \ : Input=="Linear_BT709"                && Output=="Linear_BT601_PAL"                ? "BT709_to_BT601_PAL"
@@ -90,7 +92,9 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
        
     # Populating frame properties               
                 my_Matrix =
-        \   Input=="Linear_BT601_NTSC"       && Output=="Linear_BT709"                        ? (1)
+        \   Input=="Linear_BT601_NTSC"        && Output=="Linear_BT601_NTSC-J"           ? (6)
+        \ : Input=="Linear_BT601_NTSC-J"     && Output=="Linear_BT601_NTSC"              ? (6)
+        \ : Input=="Linear_BT601_NTSC"       && Output=="Linear_BT709"                        ? (1)
         \ : Input=="Linear_BT601_PAL"        && Output=="Linear_BT709"                         ? (1)
         \ : Input=="Linear_BT709"              && Output=="Linear_BT601_NTSC"                 ? (6)
         \ : Input=="Linear_BT709"              && Output=="Linear_BT601_PAL"                   ? (5)
@@ -130,7 +134,9 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
         \ : (2)
 
                 my_transfer =
-        \   Input=="Linear_BT601_NTSC"      && Output=="Linear_BT709"                         ? (1)
+        \   Input=="Linear_BT601_NTSC"      && Output=="Linear_BT601_NTSC-J"              ? (4)
+        \ : Input=="Linear_BT601_NTSC-J"   && Output=="Linear_BT601_NTSC"                 ? (6)
+        \ : Input=="Linear_BT601_NTSC"      && Output=="Linear_BT709"                         ? (1)
         \ : Input=="Linear_BT601_PAL"        && Output=="Linear_BT709"                         ? (1)
         \ : Input=="Linear_BT709"              && Output=="Linear_BT601_NTSC"                 ? (6)
         \ : Input=="Linear_BT709"              && Output=="Linear_BT601_PAL"                   ? (6)
@@ -170,7 +176,9 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
         \ : (2)
 
             my_primaries =
-        \   Input=="Linear_BT601_NTSC"       && Output=="Linear_BT709"                        ? (1)
+        \   Input=="Linear_BT601_NTSC"      && Output=="Linear_BT601_NTSC-J"              ? (4)
+        \ : Input=="Linear_BT601_NTSC-J"   && Output=="Linear_BT601_NTSC"                 ? (6)
+        \ : Input=="Linear_BT601_NTSC"      && Output=="Linear_BT709"                         ? (1)
         \ : Input=="Linear_BT601_PAL"        && Output=="Linear_BT709"                         ? (1)
         \ : Input=="Linear_BT709"              && Output=="Linear_BT601_NTSC"                 ? (6)
         \ : Input=="Linear_BT709"              && Output=="Linear_BT601_PAL"                   ? (5)
@@ -210,7 +218,9 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
         \ : (2)
                    
                 output_Matrix =
-        \   Input=="Linear_BT601_NTSC"       && Output=="Linear_BT709"                        ? ("Rec709")
+        \   Input=="Linear_BT601_NTSC"      && Output=="Linear_BT601_NTSC-J"              ? ("Rec601")
+        \ : Input=="Linear_BT601_NTSC-J"   && Output=="Linear_BT601_NTSC"                 ? ("Rec601")
+        \ : Input=="Linear_BT601_NTSC"       && Output=="Linear_BT709"                        ? ("Rec709")
         \ : Input=="Linear_BT601_PAL"        && Output=="Linear_BT709"                         ? ("Rec709")
         \ : Input=="Linear_BT709"              && Output=="Linear_BT601_NTSC"                 ? ("Rec601")
         \ : Input=="Linear_BT709"              && Output=="Linear_BT601_PAL"                   ? ("Rec601")
@@ -272,6 +282,7 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
         #Set frame properties
         propset("_Matrix", my_Matrix)
         propset("_Transfer", my_transfer)
+        propset("_Primaries", my_primaries)
         
         out=last
         
