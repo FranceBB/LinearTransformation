@@ -30,6 +30,10 @@ As you can see, in the right hand side waveform (tetrahedral) there are no rippl
 Currently, only those conversions are supported:
 <br>
 <br>
+LinearTransformation(Input="Linear_BT601_NTSC", Output="Linear_BT601_NTSC-J")
+<br>
+LinearTransformation(Input="Linear_BT601_NTSC-J", Output="Linear_BT601_NTSC")
+<br>
 LinearTransformation(Input="Linear_BT601_NTSC", Output="Linear_BT709")
 <br>
 LinearTransformation(Input="Linear_BT601_PAL", Output="Linear_BT709")
