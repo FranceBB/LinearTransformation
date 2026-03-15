@@ -60,6 +60,12 @@ LinearTransformation(Input="BT2100_PQ", Output="BT2020_HLG")
 <br>
 LinearTransformation(Input="BT2100_PQ", Output="DCI_XYZ")
 <br>
+LinearTransformation(Input="ALog", Output="Linear_BT709")
+<br>
+LinearTransformation(Input="ALog", Output="BT2020_HLG")
+<br>
+LinearTransformation(Input="ALog", Output="BT2100_PQ")
+<br>
 LinearTransformation(Input="CLog3", Output="Linear_BT709")
 <br>
 LinearTransformation(Input="CLog3", Output="Linear_BT601_PAL")
@@ -173,6 +179,11 @@ Those LUTs are used by everyone for free, from companies that deal with broadcas
 - Compatible with Adobe Premiere
 - Compatible with Colorfront Transkoder
 <br>
+
+# Alog to BT709 SDR 100 nits
+
+<br>
+
 
 # Slog3 to BT709 SDR 100 nits
 ![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/d0efb065-8c47-47aa-87aa-586c7858206f)
