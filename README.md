@@ -181,10 +181,11 @@ Those LUTs are used by everyone for free, from companies that deal with broadcas
 <br>
 
 # Alog to BT709 SDR 100 nits
-
+![image](https://github.com/user-attachments/assets/6360e2af-8566-4750-911f-1bff772425de)
 <br>
-
-
+![image](https://github.com/user-attachments/assets/8c71ea0b-56cc-482e-b6b7-d2f2be4cac24)
+![image](https://github.com/user-attachments/assets/643d286b-1274-4a11-94ec-31c016a9872d)
+<br>
 # Slog3 to BT709 SDR 100 nits
 ![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/d0efb065-8c47-47aa-87aa-586c7858206f)
 <br>
