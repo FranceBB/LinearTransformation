@@ -5,7 +5,7 @@ This script performs Linear Transformations based on a matrix conversion.
 <br>
 **Parameters**
 <br>
-LinearTransformation(clip clp, string "Input", string "Output", string "Interpolation")
+LinearTransformation(clip clp, string "Input", string "Output", string "Interpolation", string "LUT_Path")
 <br>
 <br>
 clip = input clip
@@ -16,12 +16,20 @@ string Output = destination output you want to go to
 <br>
 string Interpolation = interpolation method to use (Trilinear or Tetrahedral)
 <br>
+string LUT_Path = path to the folder where the LUTs are ( e.g D:\MyLUTs\ while default is C:\Program Files (x86)\AviSynth+\LUTs\ )
+<br>
+<br>
 <br>
 The function has two mandatory parameters: Input and Output.
 <br>
-The function also has one optional parameter: Interpolation.
+The function also has two optional parameters: Interpolation and LUT_Path.
+<br>
 <br>
 The interpolation parameter can either be set to "Trilinear" or "Tetrahedral" and by default it's set to Tetrahedral as it achieves better results.
+<br>
+<br>
+The LUT_Path allows you to specify a different path if you prefer to have the .cube files in a different place that isn't the default C:\Program Files (x86)\AviSynth+\LUTs\.
+<br>
 <br>
 Source (left) - Trilinear (center) - Tetrahedral (right):
 ![image](https://github.com/FranceBB/LinearTransformation/assets/18946343/f742fb52-e382-4317-abf4-342c55a1790c)
@@ -123,7 +131,7 @@ The transformation is performed with 16bit precision, which means that if your i
 <br>
 Planar RGB 16bit is strongly suggested as your source as it's gonna be faster, in fact 4:2:0, 4:2:2, 4:4:4 planar up to 16bit will be converted back and forth internally.
 <br>
-Inside the plugin, the path specified for the matrices is "mypath" and by default is:  mypath = "C:\Program Files (x86)\AviSynth+\LUTs\" which means that it's gonna look for my LUTs in a folder in such a location. It's not mandatory to have my LUTs there, you can have them in any location you want, provided that you do update that string.
+Inside the plugin, the path specified for the matrices by default is: "C:\Program Files (x86)\AviSynth+\LUTs\" which means that it's gonna look for my LUTs in a folder in such a location. It's not mandatory to have my LUTs there, you can have them in any location you want, provided that you do update that string via the LUT_Path parameter while calling the function.
 <br>
 <br>
 <br>
