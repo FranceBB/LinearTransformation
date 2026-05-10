@@ -1,8 +1,9 @@
-Function LinearTransformation(clip clp, string "Input", string "Output", string "Interpolation") {
+Function LinearTransformation(clip clp, string "Input", string "Output", string "Interpolation", string "LUT_Path") {
 
     Input  = Default(Input ,"")        
     Output = Default(Output,"")
     Interpolation = Default(Interpolation, "1")
+    LUT_Path = Default(LUT_Path, "C:\Program Files (x86)\AviSynth+\LUTs\") #set the location of your Avisynth installation and/or the LUTs downloaded
     
     #Check interpolation method and align to avscube (Trilinear = 0, Tetrahedral = 1)
     if (Interpolation == "Trilinear") {
@@ -12,9 +13,6 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
     {
         Interpolation = 1
      }
-    
-    #set the location of your Avisynth installation and/orthe LUTs downloaded
-    mypath = "C:\Program Files (x86)\AviSynth+\LUTs\"
 
     # Removed IsRGB, that just means Any type of RGB at all, Interleaved, planar, any bit depth at all.
     # We've used "RGBP" for Planar RGB
@@ -283,12 +281,12 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
         #Alpha channel conversion
         ConvertBits(my_alpha, 16)
         ConvertToPlanarRGB()
-        Cube(myPath + CubeStr + ".cube", interp=Interpolation, fullrange=1)
+        Cube(LUT_Path + CubeStr + ".cube", interp=Interpolation, fullrange=1)
         ConverttoY()
         my_alpha=last
         
         #Normal channel conversion
-        Cube(clp, myPath + CubeStr + ".cube", interp=Interpolation, fullrange=1)
+        Cube(clp, LUT_Path + CubeStr + ".cube", interp=Interpolation, fullrange=1)
         my_video=last
         
         #Merge converted normal channel with converted alpha channel
@@ -305,7 +303,7 @@ Function LinearTransformation(clip clp, string "Input", string "Output", string 
     else
     {
         #Normal channel conversion
-        Cube(clp, myPath + CubeStr + ".cube", interp=Interpolation, fullrange=1)
+        Cube(clp, LUT_Path + CubeStr + ".cube", interp=Interpolation, fullrange=1)
         
         #Set frame properties
         propset("_Matrix", my_Matrix)
